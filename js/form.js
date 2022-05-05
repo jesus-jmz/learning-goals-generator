@@ -63,11 +63,12 @@ function updateResult(){
   let tema = document.getElementById("tema").value;
   let utilidad = document.getElementById("utilidad").value;
   let lugar = document.getElementById("lugar").value;
+  let metodo = document.getElementById("metodo").value;
   let resultado = document.getElementById("resultado");
 
 
 
-  let cat = verb + " " + tema + " " +  utilidad + " " + lugar;
+  let cat = verb + " " + tema + " " +  utilidad + " " + lugar + " " + metodo;
   cat = addPeriod(cat);
   resultado.value = cat;
   //updateLevels(verb, tema, lugar);*/
@@ -153,12 +154,13 @@ function updateLinks() {
 }
 
 //Constructor de slabs
-function Slab(nivelTax, verb, tema, utilidad, lugar, resultado, descubre, demuestra, autovaloracion) {
+function Slab(nivelTax, verb, tema, utilidad, lugar, metodo, resultado, descubre, demuestra, autovaloracion) {
   this.nivelTax = nivelTax;
   this.verb = verb;
   this.tema = tema;
   this.utilidad = utilidad;
   this.lugar = lugar;
+  this.metodo = metodo;
   this.resultado = resultado;
   this.descubre = descubre;
   this.demuestra = demuestra;
@@ -176,6 +178,7 @@ function saveSlab() {
     let tema = document.getElementById("tema");
     let utilidad = document.getElementById("utilidad");
     let lugar = document.getElementById("lugar");
+    let metodo = document.getElementById("metodo");
     let resultado = document.getElementById("resultado");
     let descubre = document.getElementById("descubre");
     let demuestra = document.getElementById("demuestra");
@@ -189,6 +192,7 @@ function saveSlab() {
         tema.value,
         utilidad.value,
         lugar.value,
+        metodo.value,
         resultado.value,
         descubre.textContent,
         demuestra.textContent,
@@ -208,6 +212,7 @@ function saveSlab() {
         tema.value,
         utilidad.value,
         lugar.value,
+        metodo.value,
         resultado.value,
         descubre.textContent,
         demuestra.textContent,
@@ -224,6 +229,7 @@ function cleanFields() {
   let tema = document.getElementById("tema");
   let utilidad = document.getElementById("utilidad");
   let lugar = document.getElementById("lugar");
+  let metodo = document.getElementById("metodo");
   let resultado = document.getElementById("resultado");
   let descubre = document.getElementById("descubre");
   let demuestra = document.getElementById("demuestra");
@@ -234,6 +240,7 @@ function cleanFields() {
   tema.value = '';
   utilidad.value = '';
   lugar.value = '';
+  metodo.value = '';
   resultado.value = '';
   descubre.innerHTML = '<a  id="descubre" href="#"></a>';
   demuestra.innerHTML = '<a  id="demuestra" href="#"></a>';
@@ -280,6 +287,7 @@ function updateFields() {
     document.getElementById("tema").value = slabs[select.value-1].tema;
     document.getElementById("utilidad").value = slabs[select.value-1].utilidad;
     document.getElementById("lugar").value = slabs[select.value-1].lugar;
+    document.getElementById("metodo").value = slabs[select.value-1].metodo;
     document.getElementById("resultado").value = slabs[select.value-1].resultado;
 
     if (slabs[select.value-1].descubre === "Drag and drop") {
